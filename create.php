@@ -38,15 +38,15 @@
 
         <label for="categoria"><span>Selecione a categoria:</span></label>
         <select id="categoria" name="categoria">
-            <option value="periferico">Periféricos</option>
-            <option value="placa">Placas de circuitos</option>
-            <option value="pilha">Baterias e Pilhas</option>
-            <option value="fios">Fios</option>
-            <option value="celular">Celulares</option>
-            <option value="eletrodomestico">Eletrodomesticos</option>
-            <option value="radio">Rádios</option>
-            <option value="televisor">Televisores</option>
-            <option value="outros">Outros</option>
+            <option value="Periféricos">Periféricos</option>
+            <option value="Placas de circuitos">Placas de circuitos</option>
+            <option value="Baterias e Pilhas">Baterias e Pilhas</option>
+            <option value="Fios">Fios</option>
+            <option value="Celulares">Celulares</option>
+            <option value="Eletrodomésticos">Eletrodomésticos</option>
+            <option value="Rádios">Rádios</option>
+            <option value="Televisores">Televisores</option>
+            <option value="Outros">Outros</option>
         </select>
 
         <label for="quantidade">Quantidade de produtos:</label>

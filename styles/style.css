@@ -137,3 +137,40 @@ footer {
     align-items: center;
     gap: 1rem;
 }
+
+table {
+    width: 80%;
+    font-family: 'Gideon Roman', cursive;
+    font-size: 1rem;
+    text-align: left;
+    position: relative;
+    border-collapse: collapse; 
+    background-color: #f6f6f6;
+}
+
+td, th {
+    border: 1px solid #999;
+    padding: 20px;
+    color: var(--footerBg);
+}
+th {
+    background: var(--footerBg);
+    color: white;
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+}
+.primary{
+    background-color: #000000
+}
+
+.table-content{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+  

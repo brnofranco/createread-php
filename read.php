@@ -53,14 +53,13 @@
             <a class="tabs" href="./read.php">Ver</a>
         </nav>
     </header>
-    <div class="main-content">
+    <div class="table-content">
         <h1>Dados cadastrados:</h1>
         <table>
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>E-mail</th>
-                    <th>Telefone</th>
                     <th>Titulo</th>
                     <th>Categoria</th>
                     <th>Quantidade</th>
@@ -82,7 +81,6 @@
                         
                         $name = $separator[0];
                         $email = $separator[1];
-                        $telefone = $separator[2];
                         $titulo = $separator[3];
                         $categoria = $separator[4];
                         $quantidade = $separator[5];
@@ -91,7 +89,6 @@
                         echo "<tr>
                                 <td>$name</td>
                                 <td>$email</td>
-                                <td>$telefone</td>
                                 <td>$titulo</td>
                                 <td>$categoria</td>
                                 <td>$quantidade</td>
@@ -109,5 +106,14 @@
             <a href="./create.php">Cadastrar novo</a>
         </button>
     </div>
+    <footer>
+        <?php
+            setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+            date_default_timezone_set('America/Sao_Paulo');
+            echo strftime('<h4>Jundiaí, %d de %B de %Y</h4>', strtotime('today'));
+        ?>
+        <span> - </span>
+        <h4>Desenvolvido por Bruno Franco e Murilo Carbol.</h4>
+    </footer>
 </body>
 </html>
