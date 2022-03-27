@@ -31,7 +31,7 @@
         <?php
             setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
             date_default_timezone_set('America/Sao_Paulo');
-            echo strftime('%d de %B de %Y', strtotime('today'));
+            echo strftime('Jundiaí, %d de %B de %Y', strtotime('today'));
         ?>
     </h2>
 </body>
