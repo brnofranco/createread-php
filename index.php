@@ -18,14 +18,15 @@
         </nav>
     </header>
     <hr>
-
-    <h1>Projeto P1 - Criação e leitura de arquivo</h1>
-    <button>
-        <a href="./create.php">Cadastrar</a>
-    </button>
-    <button>
-        <a href="./read.php">Ver dados cadastrados</a>
-    </button>
+    <div class="main-content">   
+        <h1>Projeto P1 - Criação e leitura de arquivo</h1>
+        <button>
+            <a href="./create.php">Cadastrar</a>
+        </button>
+        <button>
+            <a href="./read.php">Ver dados cadastrados</a>
+        </button>
+    </div>
     <h2>
         <?php
             setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
