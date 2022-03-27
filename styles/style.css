@@ -53,3 +53,7 @@ hr {
 input {
     border: 1px solid #000;
 }
+
+.main-content {
+    background-color: white;
+}
