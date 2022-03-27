@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
+:root {
+    --mainBg: #00202c;
+    --footerBg: #038C65;
+}  
+
 * {
 	margin: 0;
 	padding: 0;
@@ -16,14 +21,27 @@ a {
     color: inherit;
 }
 
+body {
+    background-color: var(--mainBg);
+    color: #fff;
+}
+
 header {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     background-color: inherit;
     padding: 2rem 0;
     
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    background: var(--mainBg);
+}
+
+header bold {
+    color: var(--footerBg);
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 nav {
@@ -33,35 +51,89 @@ nav {
     justify-content: space-between;
 }
 
-.tabs {
+nav .tabs {
     font-weight: bold;
-    color: purple;
+    color: #fff;
     transition: 0.2s ease-in-out;
 }
 
 .tabs:hover {
-    color: black;
-}
-
-hr {
-    height: 1px;
-    background-color: #222;
-    width: 80%;
-    margin: 0 auto;
+    color: var(--footerBg);
 }
 
 input {
     border: 1px solid #000;
 }
 
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
 .main-content {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+.main-content b {
+    color: var(--footerBg);
+}
+.main-content p {
+    opacity: 0.8;
+}
+
+.main-content .main-content-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.main-content .main-content-cards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.main-content-cards .card {
+    height: 100px;
+    width: 100px;
+    display: flex;
     flex-direction: column;
 }
 
 button{
     padding: 0.5rem 0.5rem 0.5rem;
     margin: 0.5rem;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content-cards .card img {
+    height: 100px;
+    width: 100px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: 2rem 0;
+
+    width: 100%;
+    background: var(--footerBg);
+    color: var(--mainBg);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }

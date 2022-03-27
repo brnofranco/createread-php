@@ -5,34 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="shortcut icon" href="https://i.pinimg.com/originals/95/b3/e1/95b3e17356f0fbf21ba964bd82f9b5b9.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/267b.png" type="image/x-icon">
     <title>Projeto P1</title>
 </head>
 <body>
     <header>
-        <bold>Projeto</bold>
+        <bold> <a href="./index.php">Recicla Tech</a> </bold>
         <nav>
             <a class="tabs" href="./index.php">Home</a>
             <a class="tabs" href="./create.php">Cadastrar</a>
             <a class="tabs" href="./read.php">Ver</a>
         </nav>
     </header>
-    <hr>
-    <div class="main-content">   
-        <h1>Projeto P1 - Criação e leitura de arquivo</h1>
-        <button>
-            <a href="./create.php">Cadastrar</a>
-        </button>
-        <button>
-            <a href="./read.php">Ver dados cadastrados</a>
-        </button>
-    </div>
-    <h2>
+    <main>
+        <div class="main-content">
+            <h1>
+                Cadastre seu <b>lixo eletrônico</b> e ajude o meio ambiente
+            </h1>
+            <section class="main-content-info">
+                <p>
+                    O lixo eletrônico (e-lixo) ou tecnológico, como o próprio nome indica, é aquele proveniente de materiais eletrônicos. Ele também é conhecido pela sigla RAEE (Resíduos de Aparelhos Eletroeletrônicos).
+                </p>
+                <p>
+                    Com o avanço da tecnologia no mundo moderno, há um excesso de lixo eletrônico os quais podem causar diversos impactos negativos no meio ambiente.
+                </p>
+            </section>
+            <section class="main-content-cards">
+                <div class="card">
+                    <img src="./images/computerIcon.svg" alt="computer icon">
+                    <h5>Computadores</h5>
+                </div>
+                <div class="card">
+                    <img src="./images/batteryIcon.svg" alt="computer icon">
+                    <h5>Baterias</h5>
+                </div>
+                <div class="card">
+                    <img src="./images/motherboardIcon.svg" alt="computer icon">
+                    <h5>Placas gerais</h5>
+                </div>
+                <div class="card">
+                    <img src="./images/fridgeIcon.svg" alt="computer icon">
+                    <h5>Eletrodoméstico</h5>
+                </div>
+            </section>
+        </div>
+        <img class="main-image" src="./images/nature.svg" alt="nature">
+    </main>
+    <footer>
         <?php
             setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
             date_default_timezone_set('America/Sao_Paulo');
-            echo strftime('Jundiaí, %d de %B de %Y', strtotime('today'));
+            echo strftime('<h4>Jundiaí, %d de %B de %Y</h4>', strtotime('today'));
         ?>
-    </h2>
+        <span> - </span>
+        <h4>Desenvolvido por Bruno Franco e Murilo Carbol.</h4>
+    </footer>
 </body>
 </html>
