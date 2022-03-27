@@ -1,3 +1,4 @@
-users;email1@gmail.com
-Bruno Franco;email2@gmail.com
-Projetos ágeis;email3@gmail.com;
+users;email1@gmail.com;(11)90000-0000;Title;Categoria;Quantidade;27/03/2022
+Bruno Franco;email2@gmail.com;(11)90000-0000;Title;Categoria;Quantidade;27/03/2022
+Projetos ágeis;email3@gmail.com;(11)90000-0000;Title;Categoria;Quantidade;27/03/2022
+Teste;teste@teste.com;11-90000-0000;Teste;outros;10;2022-03-28

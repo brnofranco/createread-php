@@ -2,9 +2,23 @@
     if (isset($_POST["name"])) {
         $name = $_POST["name"];
     }
-
     if (isset($_POST["email"])) {
         $email = $_POST["email"];
+    }
+    if (isset($_POST["telefone"])) {
+        $telefone = $_POST["telefone"];
+    }
+    if (isset($_POST["titulo"])) {
+        $titulo = $_POST["titulo"];
+    }
+    if (isset($_POST["categoria"])) {
+        $categoria = $_POST["categoria"];
+    }
+    if (isset($_POST["quantidade"])) {
+        $quantidade = $_POST["quantidade"];
+    }
+    if (isset($_POST["date"])) {
+        $date = $_POST["date"];
     }
 
     if (isset($_POST["name"])) {
@@ -12,7 +26,7 @@
         
         if ($file == false) die('Não foi possível criar o arquivo.');
     
-        $data = "$name;$email\n";
+        $data = "$name;$email;$telefone;$titulo;$categoria;$quantidade;$date\n";
         fwrite($file, $data);
     
         fclose($file);
@@ -40,16 +54,22 @@
         </nav>
     </header>
     <hr>
-    
-    <h1>Dados cadastrados</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="main-content">
+        <h1>Dados cadastrados:</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Titulo</th>
+                    <th>Categoria</th>
+                    <th>Quantidade</th>
+                    <th>Data</th> 
+                </tr>
+            </thead>
+            <tbody> 
+            
             <?php
                 $file = fopen('data/data.txt','r');
 
@@ -63,20 +83,32 @@
                         
                         $name = $separator[0];
                         $email = $separator[1];
+                        $telefone = $separator[2];
+                        $titulo = $separator[3];
+                        $categoria = $separator[4];
+                        $quantidade = $separator[5];
+                        $date = $separator[6];
     
                         echo "<tr>
                                 <td>$name</td>
                                 <td>$email</td>
-                              </tr>";
+                                <td>$telefone</td>
+                                <td>$titulo</td>
+                                <td>$categoria</td>
+                                <td>$quantidade</td>
+                                <td>$date</td>
+                              </tr>
+                              ";
                     }
                 }
                 fclose($file);
             ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <button>
-        <a href="./create.php">Cadastrar novo</a>
-    </button>
+        <button>
+            <a href="./create.php">Cadastrar novo</a>
+        </button>
+    </div>
 </body>
 </html>
