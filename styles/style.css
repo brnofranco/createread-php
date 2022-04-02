@@ -3,6 +3,7 @@
 :root {
     --mainBg: #00202c;
     --footerBg: #038C65;
+    --footerBgLighter: #00ab7a;
 }  
 
 * {
@@ -61,10 +62,6 @@ nav .tabs {
     color: var(--footerBg);
 }
 
-input {
-    border: 1px solid #000;
-}
-
 main {
     display: flex;
     flex-direction: row;
@@ -74,17 +71,21 @@ main {
     width: 80%;
     margin: 0 auto;
     margin-top: 2rem;
+    margin-bottom: 6rem;
 }
 
 .main-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex: 1;
     gap: 3rem;
 }
-.main-content b {
+
+.main-content strong {
     color: var(--footerBg);
 }
+
 .main-content p {
     opacity: 0.8;
 }
@@ -107,6 +108,7 @@ main {
     height: 100px;
     width: 100px;
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -123,46 +125,28 @@ button{
     width: 100px;
 }
 
+.main-image {
+    display: flex;
+    flex: 1;
+}
+
+.main-image img {
+    width: 100%;
+}
+
 footer {
     position: fixed;
     bottom: 0;
-    padding: 2rem 0;
-
+    padding: 1rem 0;
+    
     width: 100%;
     background: var(--footerBg);
     color: var(--mainBg);
-
+    
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-}
-
-table {
-    width: 80%;
-    font-family: 'Gideon Roman', cursive;
-    font-size: 1rem;
-    text-align: left;
-    position: relative;
-    border-collapse: collapse; 
-    background-color: #f6f6f6;
-}
-
-td, th {
-    border: 1px solid #999;
-    padding: 20px;
-    color: var(--footerBg);
-}
-th {
-    background: var(--footerBg);
-    color: white;
-    border-radius: 0;
-    position: sticky;
-    top: 0;
-    padding: 10px;
-}
-.primary{
-    background-color: #000000
 }
 
 .table-content{
@@ -173,4 +157,128 @@ th {
     align-items: center;
     flex-direction: column;
 }
-  
+
+.table-content h1 {
+    margin-bottom: 2rem;
+}
+
+.table-content table {
+    width: 80%;
+    font-family: 'Gideon Roman', cursive;
+    font-size: 1rem;
+    text-align: left;
+    position: relative;
+    border-collapse: collapse; 
+    background-color: #f6f6f6;
+}
+
+.table-content td, th {
+    border: 1px solid #444;
+    padding: 20px;
+    color: var(--footerBg);
+}
+
+.table-content th {
+    background: var(--footerBg);
+    color: white;
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+}
+
+.table-content .button-create-new {
+    background: var(--footerBg);
+    width: 80%;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    transition: 0.2s ease-in-out;
+}
+
+.table-content .button-create-new:hover {
+    background: var(--footerBgLighter);
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+    color: #000;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+form .form-data {
+    background: #eee;
+    border-radius: 8px;
+    padding: 1rem 3rem;
+    margin-bottom: 2rem;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+form .form-data h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--mainBg);
+}
+
+form .form-data .input-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+form .form-data .input-form input, form .form-data .input-form select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form .form-data .input-form input:focus, form .form-data .input-form select:focus {
+    box-shadow: 0 0 4px #888;
+}
+
+form .form-data input[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--footerBg);
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    color: #eee;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+form .form-data input[type="submit"]:hover {
+    background-color: var(--footerBgLighter);
+}
+
+@media (max-width: 1280px) {
+    main {
+        flex-direction: column;
+    }
+
+    footer {
+        position: relative;
+    }
+
+    form {
+        flex-direction: column;
+    }
+}

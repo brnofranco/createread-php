@@ -1,4 +1,4 @@
-users;email1@gmail.com;(11)90000-0000;Title;Categoria;Quantidade;27/03/2022
-Bruno Franco;email2@gmail.com;(11)90000-0000;Title;Categoria;Quantidade;27/03/2022
-Projetos ágeis;email3@gmail.com;(11)90000-0000;Title;Categoria;Quantidade;27/03/2022
-Teste;teste@teste.com;11-90000-0000;Teste;outros;10;2022-03-28
+Gabriel Esperança;gab.esperanca@gmail.com;11900000000;Pilhas;Pilhas e Baterias;10;27/03/2022
+Murilo;mirtilo@gmail.com;11900000000;Monitor Gamer 320Hz;Periféricos;1;12/03/2022
+Bruno;bruno@gmail.com;11900000000;Tampa de processador;Placas de circuitos;3;01/04/2022
+Luigi;luigi@gmail.com;11900000000;Mouse não-gamer 30k dpi;Periféricos;5;01/04/2022

@@ -18,13 +18,13 @@
         $quantidade = $_POST["quantidade"];
     }
     if (isset($_POST["date"])) {
-        $date = $_POST["date"];
+        $date = strftime('%d/%m/%Y', strtotime($_POST["date"]));
     }
 
     if (isset($_POST["name"])) {
         $file = fopen('data/data.txt','a');
         
-        if ($file == false) die('Não foi possível criar o arquivo.');
+        if (!$file) die('Não foi possível criar o arquivo.');
     
         $data = "$name;$email;$telefone;$titulo;$categoria;$quantidade;$date\n";
         fwrite($file, $data);
@@ -42,19 +42,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/267b.png" type="image/x-icon">
-    <title>Dados</title>
+    <title>Peças - Reciclottech</title>
 </head>
 <body>
     <header>
-        <bold> <a href="./index.php">Recicla Tech</a> </bold>
+        <bold> <a href="./index.php">Reciclottech</a> </bold>
         <nav>
             <a class="tabs" href="./index.php">Home</a>
-            <a class="tabs" href="./create.php">Cadastrar</a>
-            <a class="tabs" href="./read.php">Ver</a>
+            <a class="tabs" href="./read.php">Ver peças</a>
+            <a class="tabs" href="./create.php">Cadastrar peça</a>
         </nav>
     </header>
     <div class="table-content">
-        <h1>Dados cadastrados:</h1>
+        <h1>Dados cadastrados</h1>
         <table>
             <thead>
                 <tr>
@@ -102,18 +102,8 @@
             </tbody>
         </table>
 
-        <button>
-            <a href="./create.php">Cadastrar novo</a>
-        </button>
+        <a class="button-create-new" href="./create.php">Cadastrar novo</a>
+        
     </div>
-    <footer>
-        <?php
-            setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-            date_default_timezone_set('America/Sao_Paulo');
-            echo strftime('<h4>Jundiaí, %d de %B de %Y</h4>', strtotime('today'));
-        ?>
-        <span> - </span>
-        <h4>Desenvolvido por Bruno Franco e Murilo Carbol.</h4>
-    </footer>
 </body>
 </html>

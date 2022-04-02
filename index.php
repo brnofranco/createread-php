@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/267b.png" type="image/x-icon">
-    <title>Projeto P1</title>
+    <title>Home - Reciclottech</title>
 </head>
 <body>
     <header>
-        <bold> <a href="./index.php">Recicla Tech</a> </bold>
+        <bold> <a href="./index.php">Reciclottech</a> </bold>
         <nav>
             <a class="tabs" href="./index.php">Home</a>
-            <a class="tabs" href="./create.php">Cadastrar</a>
-            <a class="tabs" href="./read.php">Ver</a>
+            <a class="tabs" href="./read.php">Ver peças</a>
+            <a class="tabs" href="./create.php">Cadastrar peça</a>
         </nav>
     </header>
     <main>
         <div class="main-content">
             <h1>
-                Cadastre seu <b>lixo eletrônico</b> e ajude o meio ambiente
+                Cadastre seu <strong>lixo eletrônico</strong> e ajude o meio ambiente
             </h1>
             <section class="main-content-info">
                 <p>
@@ -49,7 +49,9 @@
                 </div>
             </section>
         </div>
-        <img class="main-image" src="./images/nature.svg" alt="nature">
+        <div class="main-image">
+            <img class="main-image-img" src="./images/nature.svg" alt="nature">
+        </div>
     </main>
     <footer>
         <?php
