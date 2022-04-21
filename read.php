@@ -24,7 +24,9 @@
     if (isset($_POST["name"])) {
         $file = fopen('data/data.txt','a');
         
-        if (!$file) die('Não foi possível criar o arquivo.');
+        if (!$file) {
+            die('Não foi possível criar o arquivo.');
+        }
     
         $data = "$name;$email;$telefone;$titulo;$categoria;$quantidade;$date\n";
         fwrite($file, $data);
@@ -37,25 +39,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="shortcut icon" href="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/267b.png" type="image/x-icon">
+    <?php include(".\assets\utils\head.php"); ?>
     <title>Peças - Reciclottech</title>
 </head>
 <body>
-    <header>
-        <bold> <a href="./index.php">Reciclottech</a> </bold>
-        <nav>
-            <a class="tabs" href="./index.php">Home</a>
-            <a class="tabs" href="./read.php">Ver peças</a>
-            <a class="tabs" href="./create.php">Cadastrar peça</a>
-        </nav>
-    </header>
+    <?php include(".\assets\utils\header.php"); ?>
     <div class="table-content">
-        <h1>Dados cadastrados</h1>
-        <table>
+        <h1>Peças cadastradas</h1>
+        <table aria-label="peças cadastradas">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -69,9 +60,11 @@
             <tbody> 
             
             <?php
-                $file = fopen('data/data.txt','r');
+                $file = fopen('assets/data/data.txt','r');
 
-                if ($file == false) die('Não foi possível ler os dados.');
+                if (!$file) {
+                    die('Não foi possível ler os dados.');
+                }
 
                 while (!feof($file)) {
                     $line = fgets($file);

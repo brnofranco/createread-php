@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="shortcut icon" href="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/267b.png" type="image/x-icon">
+    <?php include(".\assets\utils\head.php"); ?>
     <title>Cadastrar - Reciclottech</title>
 </head>
 <body>
-    <header>
-        <bold> <a href="./index.php">Reciclottech</a> </bold>
-        <nav>
-            <a class="tabs" href="./index.php">Home</a>
-            <a class="tabs" href="./read.php">Ver peças</a>
-            <a class="tabs" href="./create.php">Cadastrar peça</a>
-        </nav>
-    </header>
-    
+    <?php include(".\assets\utils\header.php"); ?>
     <form action="read.php" method="post">
         <section class="form-data">
             <h2>Cadastrar dados pessoais</h2>
