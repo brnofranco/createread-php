@@ -22,7 +22,7 @@
     }
 
     if (isset($_POST["name"])) {
-        $file = fopen('data/data.txt','a');
+        $file = fopen('assets/data/data.txt','a');
         
         if (!$file) {
             die('Não foi possível criar o arquivo.');
