@@ -19,22 +19,17 @@
                 </p>
             </section>
             <section class="main-content-cards">
-                <div class="card">
-                    <img src="./public/icons/computer.svg" alt="computer icon">
-                    <h5>Computadores</h5>
-                </div>
-                <div class="card">
-                    <img src="./public/icons/battery.svg" alt="computer icon">
-                    <h5>Baterias</h5>
-                </div>
-                <div class="card">
-                    <img src="./public/icons/motherboard.svg" alt="computer icon">
-                    <h5>Placas gerais</h5>
-                </div>
-                <div class="card">
-                    <img src="./public/icons/fridge.svg" alt="computer icon">
-                    <h5>Eletrodoméstico</h5>
-                </div>
+                <?php
+                    $iconsFile = file_get_contents('public/icons.json');
+                    $data = json_decode($iconsFile);
+                    
+                    foreach ($data->icons as &$icon) {
+                        echo '<div class="card">';
+                        echo    '<img src="'.$icon->path.'" alt="'.$icon->alt.'">';
+                        echo    '<h5>'.$icon->title.'</h5>';
+                        echo '</div>';
+                    }
+                ?>
             </section>
         </div>
         <div class="main-image">

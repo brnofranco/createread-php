@@ -1,0 +1,24 @@
+{
+   "icons": [
+        {
+            "title": "Computadores",
+            "path": "./public/icons/computer.svg",
+            "alt": "computer icon"
+        },
+        {
+            "title": "Baterias",
+            "path": "./public/icons/battery.svg",
+            "alt": "battery icon"
+        },
+        {
+            "title": "Placas gerais",
+            "path": "./public/icons/motherboard.svg",
+            "alt": "board icon"
+        },
+        {
+            "title": "Eletrodomésticos",
+            "path": "./public/icons/fridge.svg",
+            "alt": "fridge icon"
+        }
+    ]
+}

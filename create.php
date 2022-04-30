@@ -8,25 +8,6 @@
     <?php include(".\assets\utils\header.php"); ?>
     <form action="read.php" method="post">
         <section class="form-data">
-            <h2>Cadastrar dados pessoais</h2>
-            
-            <div class="input-form">
-                <label for="name">Nome</label>
-                <input type="text" name="name" id="name" required>
-            </div>
-            
-            <div class="input-form">
-                <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" required>
-            </div>
-    
-            <div class="input-form">
-                <label for="telefone">Telefone</label>
-                <input type="tel" name="telefone" id="telefone" required>
-            </div>
-        </section>
-
-        <section class="form-data">
             <h2>Cadastrar dados dos produtos</h2>
     
             <div class="input-form">

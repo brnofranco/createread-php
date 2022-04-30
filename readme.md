@@ -3,9 +3,10 @@ Este projeto é destinado a avaliação de Linguagem de Programação 4 (PHP), F
 
 ## Requerimentos:
 - Integração com Banco de Dados (MySQL)
-- CRUD com XML e JSON
+- Consumir dados de XML e JSON
 
 ## Ideias: 
+- Criar pop-up de session start e destroy
 - Sistema de Login (sessão):
     - ADMIN:
         - registra os locais de descarte
@@ -14,6 +15,9 @@ Este projeto é destinado a avaliação de Linguagem de Programação 4 (PHP), F
         - visualiza os locais próximos que recebem descarte daquele produto
 
     (ter mais ideias para implementar arquivos estáticos com XML e JSON, quem sabe os icones estáticos ou outras coisas de design, senão precisar fazer POST)
+
+## Banco de Dados:
+- Importar arquivo assets/database/users.sql no MySQL, criar base com o nome "reciclottech".
 
 <hr>
 

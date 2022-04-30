@@ -60,6 +60,20 @@ nav .tabs {
     color: var(--footerBg);
 }
 
+nav .logout {
+    background-color: #cf142b;
+    border: 1px solid #cf142b;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+}
+
+nav .logout:hover {
+    background-color: transparent;
+    border: 1px solid #cf142b;
+    transition: 0.2s ease-in-out;
+    color: #cf142b;
+}
+
 main {
     display: flex;
     flex-direction: row;
