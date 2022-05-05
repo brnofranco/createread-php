@@ -39,7 +39,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php include(".\assets\utils\head.php"); ?>
+    <?php 
+        $path = ".\\"; 
+        include(".\assets\utils\head.php"); 
+    ?>
     <title>Peças - Reciclottech</title>
 </head>
 <body>
