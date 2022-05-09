@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php include("./assets/utils/header.php"); ?>
+
     <form action="read_location.php" method="post">
         <section class="form-data">
             <h2>Cadastrar dados do local de descarte</h2>
@@ -40,6 +41,12 @@
                 <label for="cep">CEP</label>
                 <input type="number" name="cep" id="cep" required>
             </div>
+
+            <div class="input-form">
+                <form method="POST" enctype="multipart/form-data">
+                    <label for="imagem">Enviar imagem:</label>
+                <input type="file" name="pic" accept="image/*" id="pic" class="form-control" required>
+            </div> 
             
             <input type="submit" name="submit" value="Enviar Dados" />
         </section>

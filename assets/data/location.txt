@@ -1,2 +1,7 @@
-Fatec;Periféricos;Av. Ferroviarios;13201000;
-Fatec;Periféricos;Av. Ferroviarios;13201000;
+Fatec;Periféricos;Av. Ferroviarios;13201000;fatec.jpg;
+Fatec;Periféricos;Av. Ferroviarios;13201000;fatec.jpg;
+Fatec;Periféricos;Av. Ferroviarios;13201000;fatec.jpg;
+Fatec;Placas de circuitos;Av. Ferroviarios;13201000;2022.05.09-20.51.25;
+Fatec;Periféricos;Av. Ferroviarios;13201000;;
+Fatec;Periféricos;Av. Ferroviarios;13201000;;
+Fatec;Periféricos;Av. Ferroviarios;13201000;2022.05.09-21.08.23;
