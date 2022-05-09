@@ -1,22 +1,23 @@
+<?php include("./assets/sessions/session_admin.php"); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php include("../assets/utils/register/head.php"); ?>
-    <title>Cadastrar - Reciclottech</title>
+    <?php include("./assets/utils/head.php"); ?>
+    <title>Cadastrar Local - Reciclottech</title>
 </head>
 <body>
-    <?php include("../assets/utils/register/header.php"); ?>    
-    <form action="read.php" method="post">
+    <?php include("./assets/utils/header.php"); ?>
+    <form action="read_location.php" method="post">
         <section class="form-data">
-            <h2>Cadastrar dados do produto</h2>
+            <h2>Cadastrar dados do local de descarte</h2>
     
             <div class="input-form">
-                <label for="titulo">Título do produto</label>
-                <input type="text" name="titulo" id="titulo" required>
+                <label for="name">Nome do local</label>
+                <input type="text" name="name" id="name" required>
             </div>
 
             <div class="input-form">
-                <label for="categoria"><span>Selecione a categoria</span></label>
+                <label for="categoria"><span>Selecione a categoria principal do local</span></label>
                 <select id="categoria" name="categoria">
                     <option value="Periféricos">Periféricos</option>
                     <option value="Placas de circuitos">Placas de circuitos</option>
@@ -26,18 +27,18 @@
                     <option value="Eletrodomésticos">Eletrodomésticos</option>
                     <option value="Rádios">Rádios</option>
                     <option value="Televisores">Televisores</option>
-                    <option value="Outros">Outros</option>
+                    <option value="Outros">Qualquer outro tipo de produto</option>
                 </select>
             </div>
     
             <div class="input-form">
-                <label for="quantidade">Quantidade de produtos</label>
-                <input type="number" name="quantidade" id="quantidade" required>
+                <label for="endereco">Endereço do local</label>
+                <input type="text" name="endereco" id="endereco" required>
             </div>
-    
+
             <div class="input-form">
-                <label for="date">Data de descarte</label>
-                <input type="date" name="date" id="date" required>
+                <label for="cep">CEP</label>
+                <input type="number" name="cep" id="cep" required>
             </div>
             
             <input type="submit" name="submit" value="Enviar Dados" />

@@ -1,17 +1,18 @@
+<?php include("./assets/sessions/session_user.php"); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php include("../assets/utils/register/head.php"); ?>
-    <title>Cadastrar Locai - Reciclottech</title>
+    <?php include("./assets/utils/head.php"); ?>
+    <title>Cadastrar - Reciclottech</title>
 </head>
 <body>
-    <?php include("../assets/utils/register/header.php"); ?>
+    <?php include("./assets/utils/header.php"); ?>    
     <form action="read.php" method="post">
         <section class="form-data">
-            <h2>Cadastrar dados do local de descarte</h2>
+            <h2>Cadastrar dados do produto</h2>
     
             <div class="input-form">
-                <label for="titulo">Título do local</label>
+                <label for="titulo">Título do produto</label>
                 <input type="text" name="titulo" id="titulo" required>
             </div>
 
