@@ -41,6 +41,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`name`, `email`, `cep`, `password`, `id`) VALUES
 ('a', 'a@a.com', 12108914, '123', 0);
+INSERT INTO `users` (`name`, `email`, `cep`, `password`, `id`) VALUES
+('admin', 'admin@admin.com', 12108915, 'admin', 1);
 
 --
 -- Índices para tabelas despejadas

@@ -1,3 +1,4 @@
+<?php include("./assets/sessions/session.php"); ?>
 <!DOCTYPE html>
 <head>
     <?php include(".\assets\utils\head.php"); ?>
@@ -46,8 +47,6 @@
 </html>
 
 <?php
-    include("assets/database/connection.php");
-
     if (isset($_POST["email"])) {
         $email = $_POST["email"];
     }

@@ -8,7 +8,7 @@
 <body>
     <?php include("./assets/utils/header.php"); ?>
 
-    <form action="read_location.php" method="post">
+    <form method="post">
         <section class="form-data">
             <h2>Cadastrar dados do local de descarte</h2>
     
@@ -20,15 +20,12 @@
             <div class="input-form">
                 <label for="categoria"><span>Selecione a categoria principal do local</span></label>
                 <select id="categoria" name="categoria">
-                    <option value="Periféricos">Periféricos</option>
-                    <option value="Placas de circuitos">Placas de circuitos</option>
-                    <option value="Baterias e Pilhas">Baterias e Pilhas</option>
-                    <option value="Fios">Fios</option>
-                    <option value="Celulares">Celulares</option>
-                    <option value="Eletrodomésticos">Eletrodomésticos</option>
-                    <option value="Rádios">Rádios</option>
-                    <option value="Televisores">Televisores</option>
-                    <option value="Outros">Qualquer outro tipo de produto</option>
+                    <?php
+                        $xml = simplexml_load_file('./assets/data/category.xml');
+                        foreach($xml->category as $category){
+                            echo "<option value='".$category->id."'>".$category->title."</option>";
+                        } 
+                    ?>
                 </select>
             </div>
     
@@ -53,3 +50,22 @@
     </form>
 </body>
 </html>
+
+<?php
+ if(isset($_FILES['pic']))
+ {
+    $ext = strtolower(substr($_FILES['pic']['name'],-4)); //Pegando extensão do arquivo
+    $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
+    $dir = './images/'; //Diretório para uploads
+ 
+    move_uploaded_file($_FILES['pic']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
+    echo '<div class="alert alert-success" role="alert" align="center">
+          <img src="./images/' . $new_name . '" class="img img-responsive img-thumbnail" width="200"> 
+          <br>
+          Imagem enviada com sucesso!
+          <br>
+          <a href="exemplo_upload_de_imagens.php">
+          <button class="btn btn-default">Enviar nova imagem</button>
+          </a></div>';
+ } ?>
+
