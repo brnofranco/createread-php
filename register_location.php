@@ -1,4 +1,11 @@
-<?php include("./assets/sessions/session_admin.php"); ?>
+<?php include("./assets/sessions/session_admin.php"); 
+
+	if (isset($_POST['acao']) && $_POST['acao']=="cadastrar"){
+		$foto = $_FILES['foto'];	
+		$redim = new Redimensiona();
+		$src=$redim->Redimensionar($foto, 200, "images");
+	}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +15,7 @@
 <body>
     <?php include("./assets/utils/header.php"); ?>
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <section class="form-data">
             <h2>Cadastrar dados do local de descarte</h2>
     
@@ -40,11 +47,10 @@
             </div>
 
             <div class="input-form">
-                <form method="POST" enctype="multipart/form-data">
-                    <label for="imagem">Enviar imagem:</label>
-                <input type="file" name="pic" accept="image/*" id="pic" class="form-control" required>
-            </div> 
-            
+                <label for="imagem">Enviar imagem:</label>
+                <input type="file" name="foto" accept="image/*" id="pic" class="form-control" required>
+                <input type="hidden" name="acao" value="cadastrar" />
+            </div>             
             <input type="submit" name="submit" value="Enviar Dados" />
         </section>
     </form>
@@ -52,20 +58,69 @@
 </html>
 
 <?php
- if(isset($_FILES['pic']))
- {
-    $ext = strtolower(substr($_FILES['pic']['name'],-4)); //Pegando extensão do arquivo
-    $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
-    $dir = './images/'; //Diretório para uploads
- 
-    move_uploaded_file($_FILES['pic']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
-    echo '<div class="alert alert-success" role="alert" align="center">
-          <img src="./images/' . $new_name . '" class="img img-responsive img-thumbnail" width="200"> 
-          <br>
-          Imagem enviada com sucesso!
-          <br>
-          <a href="exemplo_upload_de_imagens.php">
-          <button class="btn btn-default">Enviar nova imagem</button>
-          </a></div>';
- } ?>
+class Redimensiona{
+	
+	public function Redimensionar($imagem, $largura, $pasta){
+		
+		$name = md5(uniqid(rand(),true));
+		
+		if ($imagem['type']=="image/jpeg"){
+			$img = imagecreatefromjpeg($imagem['tmp_name']);
+		}else if ($imagem['type']=="image/gif"){
+			$img = imagecreatefromgif($imagem['tmp_name']);
+		}else if ($imagem['type']=="image/png"){
+			$img = imagecreatefrompng($imagem['tmp_name']);
+		}
+		$x   = imagesx($img);
+		$y   = imagesy($img);
+		$altura = ($largura * $y)/$x;
+		
+		$nova = imagecreatetruecolor($largura, $altura);
+		imagecopyresampled($nova, $img, 0, 0, 0, 0, $largura, $altura, $x, $y);
+		
+		if ($imagem['type']=="image/jpeg"){
+			$local="$pasta/$name".".jpg";
+			imagejpeg($nova, $local);
+		}else if ($imagem['type']=="image/gif"){
+			$local="$pasta/$name".".gif";
+			imagejpeg($nova, $local);
+		}else if ($imagem['type']=="image/png"){
+			$local="$pasta/$name".".png";
+			imagejpeg($nova, $local);
+		}		
+		global $pic;
+        $pic = $local;
+		imagedestroy($img);
+		imagedestroy($nova);	
+		
+		return $local;
+	}
+}
 
+    if (isset($_POST["name"])) {
+        $name = $_POST["name"];
+    }
+    if (isset($_POST["categoria"])) {
+        $categoria = $_POST["categoria"];
+    }
+    if (isset($_POST["endereco"])) {
+        $endereco = $_POST["endereco"];
+    }
+    if (isset($_POST["cep"])) {
+        $cep = $_POST["cep"];
+    }
+
+    if (isset($_POST["name"])) {
+        $file = fopen('assets/data/location.txt','a');
+        
+        if (!$file) {
+            die('Não foi possível criar o arquivo.');
+        }
+    
+        $data = "$name;$categoria;$endereco;$cep;$pic;\n";
+        fwrite($file, $data);
+    
+        fclose($file);
+    }
+
+?>

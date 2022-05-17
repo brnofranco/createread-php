@@ -1,59 +1,4 @@
-<?php
-    include("./assets/sessions/session_admin.php");
-    if (isset($_POST["name"])) {
-        $name = $_POST["name"];
-    }
-    if (isset($_POST["categoria"])) {
-        $categoria = $_POST["categoria"];
-    }
-    if (isset($_POST["endereco"])) {
-        $endereco = $_POST["endereco"];
-    }
-    if (isset($_POST["cep"])) {
-        $cep = $_POST["cep"];
-    }
-
-    if (isset($_POST["pic"])) {
-        $ext = strtolower(substr($_FILES['pic']['name'],-4)); //Pegando extensão do arquivo
-        $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
-        $dir = './images/'; //Diretório para uploads
-        
-        move_uploaded_file($_FILES['pic']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
-        $pic = $new_name;
-    }
-/* 
-    if(isset($_FILES['pic']))
-    {
-       $ext = strtolower(substr($_FILES['pic']['name'],-4)); //Pegando extensão do arquivo
-       $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
-       $dir = './images/'; //Diretório para uploads
-    
-       move_uploaded_file($_FILES['pic']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
-       echo '<div class="alert alert-success" role="alert" align="center">
-             <img src="./images/' . $new_name . '" class="img img-responsive img-thumbnail" width="200"> 
-             <br>
-             Imagem enviada com sucesso!
-             <br>
-             <a href="exemplo_upload_de_imagens.php">
-             <button class="btn btn-default">Enviar nova imagem</button>
-             </a></div>';
-    } */
-
-    if (isset($_POST["name"])) {
-        $file = fopen('assets/data/location.txt','a');
-        
-        if (!$file) {
-            die('Não foi possível criar o arquivo.');
-        }
-    
-        $data = "$name;$categoria;$endereco;$cep;$pic;\n";
-        fwrite($file, $data);
-    
-        fclose($file);
-    }
-?>
-
-
+<?php include("./assets/sessions/session_admin.php"); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -103,7 +48,7 @@
                                 <td>$categoria</td>
                                 <td>$endereco</td>
                                 <td>$cep</td>
-                                <td><img src='./images/$pic'></td>
+                                <td><img src='$pic'></td>
                               </tr>
                               ";
                     }
