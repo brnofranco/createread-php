@@ -4,6 +4,7 @@
     --mainBg: #00202c;
     --footerBg: #038C65;
     --footerBgLighter: #00ab7a;
+    --error: #cf142b;
 }  
 
 * {
@@ -61,17 +62,46 @@ nav .tabs {
 }
 
 nav .logout {
-    background-color: #cf142b;
-    border: 1px solid #cf142b;
+    background-color: var(--error);
+    border: 1px solid var(--error);
     padding: 0.5rem 0.8rem;
     border-radius: 4px;
 }
 
 nav .logout:hover {
     background-color: transparent;
-    border: 1px solid #cf142b;
+    border: 1px solid var(--error);
     transition: 0.2s ease-in-out;
-    color: #cf142b;
+    color: var(--error)b;
+}
+
+nav .dropdown {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+nav .dropdown-content a {
+    color: var(--footerBg);
+}
+
+nav .dropdown-content a:hover {
+    color: var(--footerBgLighter);
+}
+  
+nav .dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -280,6 +310,21 @@ form .form-data input[type="submit"] {
 form .form-data input[type="submit"]:hover {
     background-color: var(--footerBgLighter);
 }
+
+form p {
+    margin-bottom: 1rem;
+}
+
+form .register-link {
+    color: #036386;
+    text-decoration: underline;
+    transition: 0.2s ease-in-out;
+}
+
+form .register-link:hover {
+    color: #079acf;
+}
+
 
 @media (max-width: 1280px) {
     header .nav-logo {

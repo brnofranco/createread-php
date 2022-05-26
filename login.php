@@ -6,7 +6,7 @@
     <title>Login - Reciclottech</title>
 </head>
 <body>
-    <?php include(".\assets\utils\header.php"); ?>
+    <?php include(".\assets\utils\header.php");?>
     <main>
         <div class="main-content">
             <h1>
@@ -27,7 +27,8 @@
                             <input type="password" name="password" id="password" required>
                         </div>
 
-                        <a href='signin.php'>Registrar agora</a>
+                        <p>Não tem cadastro? <a class="register-link" href='signin.php'>Registrar agora</a></p>
+                    
                         <input type="submit" name="submit" value="Logar" />
                     </section>
                 </form>
@@ -43,8 +44,6 @@
         <span> - </span>
         <h4>Desenvolvido por Bruno Franco e Murilo Carbol.</h4>
     </footer>
-</body>
-</html>
 
 <?php
     if (isset($_POST["email"])) {
@@ -58,7 +57,6 @@
     @$submit = $_POST["submit"];
     
     if ($submit) {
-        session_start();
 
         $query = mysqli_query($con, "SELECT * FROM users WHERE email = '$email'");
         $data = mysqli_fetch_array($query);
@@ -68,7 +66,12 @@
             $_SESSION["password"] = $password;
             header("Location:index.php");
         } else {
-            header("Location:login.php");
+            echo "<script language='javascript'>";
+            echo "alert('Login ou senha inválidos!');";
+            echo "</script>";
         }
     }
 ?>
+
+</body>
+</html>
