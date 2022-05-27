@@ -3,7 +3,7 @@
 	if (isset($_POST['acao']) && $_POST['acao']=="cadastrar"){
 		$foto = $_FILES['foto'];	
 		$redim = new Redimensiona();
-		$src=$redim->Redimensionar($foto, 200, "images");
+		$src=$redim->Redimensionar($foto, 200, "./public/locations");
 	}
 ?>
 <!DOCTYPE html>
@@ -58,44 +58,44 @@
 </html>
 
 <?php
-class Redimensiona{
-	
-	public function Redimensionar($imagem, $largura, $pasta){
-		
-		$name = md5(uniqid(rand(),true));
-		
-		if ($imagem['type']=="image/jpeg"){
-			$img = imagecreatefromjpeg($imagem['tmp_name']);
-		}else if ($imagem['type']=="image/gif"){
-			$img = imagecreatefromgif($imagem['tmp_name']);
-		}else if ($imagem['type']=="image/png"){
-			$img = imagecreatefrompng($imagem['tmp_name']);
-		}
-		$x   = imagesx($img);
-		$y   = imagesy($img);
-		$altura = ($largura * $y)/$x;
-		
-		$nova = imagecreatetruecolor($largura, $altura);
-		imagecopyresampled($nova, $img, 0, 0, 0, 0, $largura, $altura, $x, $y);
-		
-		if ($imagem['type']=="image/jpeg"){
-			$local="$pasta/$name".".jpg";
-			imagejpeg($nova, $local);
-		}else if ($imagem['type']=="image/gif"){
-			$local="$pasta/$name".".gif";
-			imagejpeg($nova, $local);
-		}else if ($imagem['type']=="image/png"){
-			$local="$pasta/$name".".png";
-			imagejpeg($nova, $local);
-		}		
-		global $pic;
-        $pic = $local;
-		imagedestroy($img);
-		imagedestroy($nova);	
-		
-		return $local;
-	}
-}
+    class Redimensiona{
+        
+        public function Redimensionar($imagem, $largura, $pasta){
+            
+            $name = md5(uniqid(rand(),true));
+            
+            if ($imagem['type']=="image/jpeg"){
+                $img = imagecreatefromjpeg($imagem['tmp_name']);
+            }else if ($imagem['type']=="image/gif"){
+                $img = imagecreatefromgif($imagem['tmp_name']);
+            }else if ($imagem['type']=="image/png"){
+                $img = imagecreatefrompng($imagem['tmp_name']);
+            }
+            $x   = imagesx($img);
+            $y   = imagesy($img);
+            $altura = ($largura * $y)/$x;
+            
+            $nova = imagecreatetruecolor($largura, $altura);
+            imagecopyresampled($nova, $img, 0, 0, 0, 0, $largura, $altura, $x, $y);
+            
+            if ($imagem['type']=="image/jpeg"){
+                $local="$pasta/$name".".jpg";
+                imagejpeg($nova, $local);
+            }else if ($imagem['type']=="image/gif"){
+                $local="$pasta/$name".".gif";
+                imagejpeg($nova, $local);
+            }else if ($imagem['type']=="image/png"){
+                $local="$pasta/$name".".png";
+                imagejpeg($nova, $local);
+            }		
+            global $pic;
+            $pic = $local;
+            imagedestroy($img);
+            imagedestroy($nova);	
+            
+            return $local;
+        }
+    }
 
     if (isset($_POST["name"])) {
         $name = $_POST["name"];
@@ -110,17 +110,16 @@ class Redimensiona{
         $cep = $_POST["cep"];
     }
 
-    if (isset($_POST["name"])) {
-        $file = fopen('assets/data/location.txt','a');
-        
-        if (!$file) {
-            die('Não foi possível criar o arquivo.');
+    @$submit = $_POST["submit"];
+    
+    if ($submit) {
+        if ($submit == "Enviar Dados") {
+            mysqli_query($con, "INSERT into locations(name, category, address, cep,image_path) VALUES('$name', '$categoria', '$endereco', '$cep', '$pic')");
+            echo "<script>alert('Local de descarte criado com sucesso!'),history.back()</script>";
+            header("Location:read_location.php");
+        } else {
+            echo  "<script>alert('Erro ao enviar os dados.');</script>";
         }
-    
-        $data = "$name;$categoria;$endereco;$cep;$pic;\n";
-        fwrite($file, $data);
-    
-        fclose($file);
     }
 
 ?>

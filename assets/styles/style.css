@@ -79,6 +79,7 @@ nav .dropdown {
     position: relative;
     display: inline-block;
     font-weight: bold;
+    cursor: pointer;
 }
 
 nav .dropdown-content {

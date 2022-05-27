@@ -25,35 +25,22 @@
             <tbody> 
             
             <?php
-                $file = fopen('./assets/data/location.txt','r');
 
-                if (!$file) {
-                    die('Não foi possível ler os dados.');
+                $query = mysqli_query($con, "SELECT * FROM locations");
+
+                while ($data=mysqli_fetch_array($query)){
+                    echo "<tr>
+                    <td>".$data['name']."</td>
+                    <td>".$data['category']."</td>
+                    <td>".$data['address']."</td>
+                    <td>".$data['cep']."</td>
+                    <td><img src='".$data['image_path']."'></td>
+                    </tr>
+                    ";
                 }
-
-                while (!feof($file)) {
-                    $line = fgets($file);
-
-                    if ($line != "") {
-                        $separator = explode(";", $line);
-                        
-                        $name = $separator[0];
-                        $categoria = $separator[1];
-                        $endereco = $separator[2];
-                        $cep = $separator[3];
-                        $pic = $separator[4];
-    
-                        echo "<tr>
-                                <td>$name</td>
-                                <td>$categoria</td>
-                                <td>$endereco</td>
-                                <td>$cep</td>
-                                <td><img src='$pic'></td>
-                              </tr>
-                              ";
-                    }
-                }
-                fclose($file);
+               
+            
+                
             ?>
             </tbody>
         </table>

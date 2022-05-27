@@ -19,8 +19,8 @@
                     echo "<div class='dropdown'>";
                     echo "<span>Locais</span>";
                     echo "<div class='dropdown-content'>";
-                    echo "<a class='tabs' href='register_location.php'>Cadastrar local</a>";
                     echo "<a class='tabs' href='read_location.php'>Locais cadastrados</a>";
+                    echo "<a class='tabs' href='register_location.php'>Cadastrar local</a>";
                     echo "</div></div>";
                 }
 
