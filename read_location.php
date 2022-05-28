@@ -20,6 +20,7 @@
                     <th>Endereço</th>
                     <th>CEP</th>
                     <th>Imagem</th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <tbody> 
@@ -35,6 +36,10 @@
                     <td>".$data['address']."</td>
                     <td>".$data['cep']."</td>
                     <td><img src='".$data['image_path']."'></td>
+                    <td>
+                    <a href='update_location.php?acao=Update&id=".$data['id']."'><img src='./public/icons/pencil.svg'></a>
+                    <a href='modify.php?acao=Excluir&id=".$data['id']."'><img src='./public/icons/eraser.svg'></a>
+                    </td>
                     </tr>
                     ";
                 }

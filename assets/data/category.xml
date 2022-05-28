@@ -1,39 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <categories>
     <category>
-        <id> 1 </id>
+        <id>Periféricos</id>
         <title> Periféricos </title>
     </category>
     <category>
-        <id> 2 </id>
+        <id>Placas de circuitos</id>
         <title> Placas de circuitos </title>
     </category>
     <category>
-        <id> 3 </id>
+        <id>Baterias e Pilhas</id>
         <title> Baterias e Pilhas </title>
     </category>
     <category>
-        <id> 4 </id>
+        <id>Fios</id>
         <title> Fios </title>
     </category>
     <category>
-        <id> 5 </id>
+        <id>Celulares</id>
         <title> Celulares </title>
     </category>
     <category>
-        <id> 6 </id>
+        <id>Eletrodomésticos</id>
         <title> Eletrodomésticos </title>
     </category>
     <category>
-        <id> 7 </id>
+        <id>Rádios</id>
         <title> Rádios </title>
     </category>
     <category>
-        <id> 8 </id>
+        <id>Televisores</id>
         <title> Televisores </title>
     </category>
     <category>
-        <id> 9 </id>
+        <id>Outro tipo de categoria</id>
         <title> Outro tipo de categoria </title>
     </category>
 </categories>
