@@ -39,8 +39,8 @@
                     <td>".Mask("#####-###", $data['cep'])."</td>
                     <td><img src='".$data['image_path']."'></td>
                     <td>
-                        <a href='update_location.php?acao=Update&id=".$data['id']."'><img style='width: 35px' src='./public/icons/pencil.svg'></a>
-                        <a href='modify.php?acao=Excluir&id=".$data['id']."'><img style='width: 30px' src='./public/icons/eraser.svg'></a>
+                        <a href='update_location.php?id=".$data['id']."'><img style='width: 35px' src='./public/icons/pencil.svg'></a>
+                        <a href='delete.php?id=".$data['id']."'><img style='width: 30px' src='./public/icons/eraser.svg'></a>
                     </td>
                     </tr>
                     ";

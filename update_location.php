@@ -1,12 +1,7 @@
 <?php 
     include("./assets/sessions/session_admin.php"); 
-    $pic = '';
-	if (isset($_GET['acao']) && $_GET['acao']=="cadastrar"){
-		$foto = $_FILES['foto'];	
-		$redim = new Redimensiona();
-		$src=$redim->Redimensionar($foto, 200, "./public/locations");
-	}
-    //var_dump($pic);
+
+    global $id;
     $id=$_GET["id"];
     $query = mysqli_query($con,"SELECT * FROM locations WHERE id=".$id);
     $data = mysqli_fetch_array($query);
@@ -16,7 +11,20 @@
     $address=$data['address'];
     $cep=$data['cep'];
     $picture=$data['image_path'];
+    $pic=$data['image_path'];
     
+	if (isset($_POST['acao']) && $_POST['acao']=="cadastrar"){
+		$foto = $_FILES['foto'];
+        var_dump($foto['name']);
+        if($foto['name'] == ""){
+            echo "foto está vazia";
+        }else{
+            $redim = new Redimensiona();
+            $src=$redim->Redimensionar($foto, 200, "./public/locations");
+            unlink($picture);
+        }
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,9 +38,8 @@
 <body>
     <?php include("./assets/utils/header.php"); ?>
     
-    <form method="get" enctype="multipart/form-data" action="modify.php?id=<?php echo $id; ?>">
+    <form method="POST" enctype="multipart/form-data">
         <section class="form-data">
-            <input type="hidden" name="id" value=<?php echo $id; ?> />
             <h2>Atualizar dados cadastrados</h2>
 
             <div class="input-form">
@@ -68,14 +75,15 @@
             
             <div class="input-form">
                 <label for="imagem">Enviar imagem:</label>
-                <input type="file" name="foto" accept="image/*" id="pic" class="form-control" value="<?php echo $picture; ?>">
+                <input type="file" name="foto" accept="image/*" id="pic" class="form-control">
                 <input type="hidden" name="acao" value="cadastrar" />
-                <input type="hidden" name="pic" value=<?php echo $pic; ?> />
             </div>
+
             <div class="buttons">
-                <input type="submit" name="acao" value="Alterar" />
-                <input class="cancel" type="submit" name="acao" value="Cancelar" />
+                <input type="submit" name="submit" value="Alterar" />
+                <input class="cancel" type="submit" name="submit" value="Cancelar" />
             </div>
+
         </section>
     </form>
 </body>
@@ -120,3 +128,36 @@
             return $local;
         }
     }
+
+    if (isset($_POST["name"])) {
+        $namenew = $_POST["name"];
+    }
+    if (isset($_POST["categoria"])) {
+        $categorianew = $_POST["categoria"];
+    }
+    if (isset($_POST["endereco"])) {
+        $endereconew = $_POST["endereco"];
+    }
+    if (isset($_POST["cep"])) {
+        $cepnew = $_POST["cep"];
+    }
+
+    @$submit = $_POST["submit"];
+
+    if ($submit) {
+        if ($submit == "Alterar") {
+            $sql = "UPDATE locations SET
+						name='$namenew', 
+						category='$categorianew',
+						address='$endereconew',
+						cep='$cepnew',
+						image_path='$pic'
+						WHERE id='$id'";
+
+            $query = mysqli_query($con,$sql) or die (mysqli_error());
+            mysqli_close($con);
+        }
+        header("Location: read_location.php");
+    }
+
+?>
