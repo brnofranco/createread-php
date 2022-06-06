@@ -9,9 +9,6 @@
     <?php include(".\assets\utils\header.php");?>
     <main>
         <div class="main-content">
-            <h1>
-                Faça seu login ou cadastre-se agora.
-            </h1>
             <section class="main-content-info">
                 <form method="POST">
                     <section class="form-data">
@@ -29,7 +26,7 @@
 
                         <p>Não tem cadastro? <a class="register-link" href='signin.php'>Registrar agora</a></p>
                     
-                        <input type="submit" name="submit" value="Logar" />
+                        <input type="submit" name="submit" value="Entrar" />
                     </section>
                 </form>
             </section>

@@ -7,13 +7,10 @@
     <?php include(".\assets\utils\header.php"); ?>
     <main>
         <div class="main-content">
-            <h1>
-                Cadastre seus dados.
-            </h1>
             <section class="main-content-info">
                 <form method="POST">
                     <section class="form-data">
-                        <h2>Cadastrar dados pessoais</h2>
+                        <h2>Criar conta</h2>
                         
                         <div class="input-form">
                             <label for="name">Nome</label>
@@ -34,6 +31,8 @@
                             <label for="password">Senha</label>
                             <input type="password" name="password" id="password" required>
                         </div>
+
+                        <p>Já tem cadastro? <a class="register-link" href='login.php'>Logar agora</a></p>
 
                         <input type="submit" name="submit" value="Cadastrar" />
                     </section>

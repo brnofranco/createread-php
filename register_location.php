@@ -38,12 +38,12 @@
     
             <div class="input-form">
                 <label for="endereco">Endereço do local</label>
-                <input type="text" name="endereco" id="endereco" required>
+                <input type="text" name="endereco" id="endereco" placeholder="Ex: Av. União dos Ferroviários, 1760 - Centro, Jundiaí - SP" required>
             </div>
 
             <div class="input-form">
                 <label for="cep">CEP</label>
-                <input type="number" name="cep" id="cep" required>
+                <input type="number" name="cep" id="cep" placeholder="Somente números" required>
             </div>
 
             <div class="input-form">

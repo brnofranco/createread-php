@@ -10,39 +10,45 @@
 <body>
     <?php include(".\assets\utils\header.php"); ?>
     <div class="table-content">
-        <h1>Peças - Reciclottech</h1>
+        <h1>Peças cadastradas</h1>
         <table aria-label="peças cadastradas">
-            <thead>
-                <tr>
-                    <th>Titulo</th>
-                    <th>Categoria</th>
-                    <th>Quantidade</th>
-                    <th>Data</th> 
-                    <th>Onde descartar</th>
-                </tr>
-            </thead>
-            <tbody> 
-            
             <?php
                 $user = $_SESSION["email"];
                 $query = mysqli_query($con, "SELECT * FROM products WHERE user = '$user'");
                         
-                while ($data=mysqli_fetch_array($query)){
-                    echo "<tr>
-                    <td>".$data['title']."</td>
-                    <td>".$data['category']."</td>
-                    <td>".$data['quantity']."</td>
-                    <td>".strftime('%d/%m/%Y', strtotime($data['date']))."</td>
-                    <td><a class='discard-link' href='./discard.php?category=".$data['category']."'>Descartar</a></td>
-                    </tr>
-                    ";
+                if (mysqli_fetch_array($query)) {
+                    echo "<thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Categoria</th>
+                                <th>Quantidade</th>
+                                <th>Data</th> 
+                                <th>Onde descartar</th>
+                            </tr>
+                        </thead>
+                        <tbody>";
+
+                    $query = mysqli_query($con, "SELECT * FROM products WHERE user = '$user'");
+
+                    while ($data=mysqli_fetch_array($query)){
+                        echo "<tr>
+                            <td>".$data['title']."</td>
+                            <td>".$data['category']."</td>
+                            <td>".$data['quantity']."</td>
+                            <td>".strftime('%d/%m/%Y', strtotime($data['date']))."</td>
+                            <td>
+                                <a class='discard-link' href='./discard.php?category=".$data['category']."'>Descartar</a>
+                            </td>
+                        </tr>
+                        ";
+                    }
+                } else {
+                    echo "<h3 class='not-found'>Parece que você ainda não tem peças cadastradadas.</h3>";
                 }
             ?>
             </tbody>
         </table>
-
         <a class="button-create-new" href="./register_product.php">Cadastrar novo</a>
-        
     </div>
 </body>
 </html>

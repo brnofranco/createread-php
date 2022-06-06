@@ -23,6 +23,11 @@
             <tbody> 
             
             <?php
+                function Mask($mask,$str) {
+                    $str = str_replace(" ","",$str);
+                    for($i=0;$i<strlen($str);$i++) $mask[strpos($mask,"#")] = $str[$i];
+                    return $mask;
+                }
 
                 $query = mysqli_query($con, "SELECT * FROM locations");
 
@@ -31,7 +36,7 @@
                     <td>".$data['name']."</td>
                     <td>".$data['category']."</td>
                     <td>".$data['address']."</td>
-                    <td>".$data['cep']."</td>
+                    <td>".Mask("#####-###", $data['cep'])."</td>
                     <td><img src='".$data['image_path']."'></td>
                     <td>
                         <a href='update_location.php?acao=Update&id=".$data['id']."'><img style='width: 35px' src='./public/icons/pencil.svg'></a>

@@ -16,10 +16,15 @@
             <h2>Os seguintes locais permitem que você descarte a peça.</h2>
         </div>
         <?php
+            function Mask($mask,$str){
+                $str = str_replace(" ","",$str);
+                for($i=0;$i<strlen($str);$i++) $mask[strpos($mask,"#")] = $str[$i];
+                return $mask;
+            }
+
             $query = mysqli_query($con, "SELECT * FROM locations WHERE category = '$category'");
                   
             if (mysqli_fetch_array($query)) {
-
                 $query = mysqli_query($con, "SELECT * FROM locations WHERE category = '$category'");
                 while ($data=mysqli_fetch_array($query)){
                     echo "<div class='locations-box'>
@@ -28,7 +33,7 @@
                                 <h2>".$data['name']."</h2>
                                 <div class='locations-box-content-info'>
                                     <p><b>Endereço:</b> ".$data['address']."</p>
-                                    <p><b>CEP:</b> ".$data['cep']."</p>
+                                    <p><b>CEP:</b> ".Mask("#####-###", $data['cep'])."</p>
                                 </div>
                             </div>
                         </div>

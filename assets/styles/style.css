@@ -18,16 +18,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-table {
-    margin: 0;
-    padding: 0;
-    background: none;
-    border: none;
-    border-collapse: collapse;
-    border-spacing: 0;
-    background-image: none;
-}
-
 a {
     text-decoration: none;
     color: inherit;
@@ -258,6 +248,11 @@ footer {
     background: var(--footerBgLighter);
 }
 
+.table-content .not-found {
+    font-weight: normal;
+    opacity: 0.8;
+}
+
 form {
     width: 80%;
     margin: 0 auto;
@@ -430,10 +425,11 @@ form .form-data input[type="submit"].cancel:hover {
     }
 
     footer {
-        position: relative;
+        display: none;
     }
 
     form {
+        width: 90%;
         flex-direction: column;
     }
 }

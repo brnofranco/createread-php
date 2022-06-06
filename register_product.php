@@ -28,7 +28,7 @@
                     ?>
                 </select>
             </div>
-    
+
             <div class="input-form">
                 <label for="quantidade">Quantidade de produtos</label>
                 <input type="number" name="quantidade" id="quantidade" required>
@@ -38,7 +38,7 @@
                 <label for="date">Data de descarte</label>
                 <input type="date" name="date" id="date" required>
             </div>
-            
+    
             <input type="submit" name="submit" value="Enviar Dados" />
         </section>
     </form>
