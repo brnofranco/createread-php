@@ -18,6 +18,7 @@
                     <th>Categoria</th>
                     <th>Quantidade</th>
                     <th>Data</th> 
+                    <th>Onde descartar</th>
                 </tr>
             </thead>
             <tbody> 
@@ -26,17 +27,16 @@
                 $user = $_SESSION["email"];
                 $query = mysqli_query($con, "SELECT * FROM products WHERE user = '$user'");
                         
-                    while ($data=mysqli_fetch_array($query)){
-                        echo "<tr>
-                        <td>".$data['title']."</td>
-                        <td>".$data['category']."</td>
-                        <td>".$data['quantity']."</td>
-                        <td>".strftime('%d/%m/%Y', strtotime($data['date']))."</td>
-                        <td></td>
-                        </tr>
-                        ";
-                    }
-                 
+                while ($data=mysqli_fetch_array($query)){
+                    echo "<tr>
+                    <td>".$data['title']."</td>
+                    <td>".$data['category']."</td>
+                    <td>".$data['quantity']."</td>
+                    <td>".strftime('%d/%m/%Y', strtotime($data['date']))."</td>
+                    <td><a class='discard-link' href='./discard.php?category=".$data['category']."'>Descartar</a></td>
+                    </tr>
+                    ";
+                }
             ?>
             </tbody>
         </table>

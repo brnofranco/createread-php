@@ -11,7 +11,7 @@
                 echo "<div class='dropdown'>";
                 echo "<span>Peças</span>";
                 echo "<div class='dropdown-content'>";
-                echo "<a class='tabs' href='read_product.php'>Ver peças</a>";
+                echo "<a class='tabs' href='read_product.php'>Peças cadastradas</a>";
                 echo "<a class='tabs' href='register_product.php'>Cadastrar peça</a>";
                 echo "</div></div>";
 

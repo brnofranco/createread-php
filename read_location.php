@@ -8,7 +8,7 @@
 <body>
     <?php include(".\assets\utils\header.php"); ?>
     <div class="table-content">
-        <h1>Peças cadastradas</h1>
+        <h1>Locais de descarte cadastrados</h1>
         <table aria-label="locais de descarte">
             <thead>
                 <tr>
@@ -26,7 +26,7 @@
 
                 $query = mysqli_query($con, "SELECT * FROM locations");
 
-                while ($data=mysqli_fetch_array($query)){
+                while ($data=mysqli_fetch_array($query)) {
                     echo "<tr>
                     <td>".$data['name']."</td>
                     <td>".$data['category']."</td>
@@ -34,15 +34,12 @@
                     <td>".$data['cep']."</td>
                     <td><img src='".$data['image_path']."'></td>
                     <td>
-                    <a href='update_location.php?acao=Update&id=".$data['id']."'><img src='./public/icons/pencil.svg'></a>
-                    <a href='modify.php?acao=Excluir&id=".$data['id']."'><img src='./public/icons/eraser.svg'></a>
+                        <a href='update_location.php?acao=Update&id=".$data['id']."'><img style='width: 35px' src='./public/icons/pencil.svg'></a>
+                        <a href='modify.php?acao=Excluir&id=".$data['id']."'><img style='width: 30px' src='./public/icons/eraser.svg'></a>
                     </td>
                     </tr>
                     ";
                 }
-               
-            
-                
             ?>
             </tbody>
         </table>

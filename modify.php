@@ -1,13 +1,7 @@
 <?php
 	$acao=$_GET['acao'];
 
-	if ($acao == "Cancelar")
-	{
-		//break;
-	}
-	else
-	{
-        
+	if ($acao != "Cancelar") {
 		include("./assets/sessions/session_admin.php");  
 
 		$id=$_GET['id'];
@@ -37,5 +31,6 @@
 		
 		mysqli_close($con);
 	}
+	
     header("Location: read_location.php");
 ?>

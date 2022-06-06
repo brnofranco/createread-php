@@ -18,6 +18,16 @@
     font-family: 'Poppins', sans-serif;
 }
 
+table {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-image: none;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -155,7 +165,7 @@ main {
     flex-direction: column;
 }
 
-button{
+button {
     padding: 0.5rem 0.5rem 0.5rem;
     margin: 0.5rem;
 
@@ -327,6 +337,88 @@ form .register-link:hover {
     color: #079acf;
 }
 
+form .form-data .buttons {
+    display: flex;
+    gap: 5rem;
+}
+
+form .form-data input[type="submit"].cancel {
+    width: 100%;
+    padding: 1rem;
+    background-color: transparent;
+    border: 2px solid var(--error);
+    color: var(--error);
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+form .form-data input[type="submit"].cancel:hover {
+    background-color: var(--error);
+    border: 2px solid var(--error);
+    transition: 0.2s ease-in-out;
+    color: #fff;
+}
+
+.locations-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.locations-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.locations-title h2 {
+    font-weight: normal;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.locations-box {
+    display: flex;
+    gap: 2rem;
+}
+
+.locations-box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.discard-link {
+    color: #0486b6;
+    text-decoration: underline;
+    transition: 0.2s ease-in-out;
+}
+
+.discard-link:hover {
+    color: #079acf;
+}
+
+.button-back {
+    background: var(--footerBg);
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+.button-back:hover {
+    background: var(--footerBgLighter);
+}
 
 @media (max-width: 1280px) {
     header .nav-logo {
