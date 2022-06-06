@@ -1,12 +1,12 @@
 <?php 
     include("./assets/sessions/session_admin.php"); 
-
+    $pic = '';
 	if (isset($_GET['acao']) && $_GET['acao']=="cadastrar"){
 		$foto = $_FILES['foto'];	
 		$redim = new Redimensiona();
 		$src=$redim->Redimensionar($foto, 200, "./public/locations");
 	}
-
+    //var_dump($pic);
     $id=$_GET["id"];
     $query = mysqli_query($con,"SELECT * FROM locations WHERE id=".$id);
     $data = mysqli_fetch_array($query);

@@ -2,17 +2,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php 
-        $path = ".\\"; 
-        include(".\assets\utils\head.php"); 
-    ?>
-    <title>Peças - Reciclottech</title>
+    <?php  include(".\assets\utils\head.php"); ?>
+    <title>Locais de Descarte - Reciclottech</title>
 </head>
 <body>
     <?php include(".\assets\utils\header.php"); ?>
     <div class="table-content">
         <h1>Peças cadastradas</h1>
-        <table aria-label="peças cadastradas">
+        <table aria-label="locais de descarte">
             <thead>
                 <tr>
                     <th>Nome</th>

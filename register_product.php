@@ -6,8 +6,9 @@
     <title>Cadastrar - Reciclottech</title>
 </head>
 <body>
-    <?php include("./assets/utils/header.php"); ?>    
-    <form action="read.php" method="post">
+    <?php include("./assets/utils/header.php"); ?> 
+
+    <form method="post">
         <section class="form-data">
             <h2>Cadastrar dados do produto</h2>
     
@@ -17,17 +18,14 @@
             </div>
 
             <div class="input-form">
-                <label for="categoria"><span>Selecione a categoria</span></label>
+                <label for="categoria"><span>Selecione a categoria principal do local</span></label>
                 <select id="categoria" name="categoria">
-                    <option value="Periféricos">Periféricos</option>
-                    <option value="Placas de circuitos">Placas de circuitos</option>
-                    <option value="Baterias e Pilhas">Baterias e Pilhas</option>
-                    <option value="Fios">Fios</option>
-                    <option value="Celulares">Celulares</option>
-                    <option value="Eletrodomésticos">Eletrodomésticos</option>
-                    <option value="Rádios">Rádios</option>
-                    <option value="Televisores">Televisores</option>
-                    <option value="Outros">Outros</option>
+                    <?php
+                        $xml = simplexml_load_file('./assets/data/category.xml');
+                        foreach($xml->category as $category){
+                            echo "<option value='".$category->id."'>".$category->title."</option>";
+                        } 
+                    ?>
                 </select>
             </div>
     
@@ -46,3 +44,32 @@
     </form>
 </body>
 </html>
+
+<?php
+
+    if (isset($_POST["titulo"])) {
+        $title = $_POST["titulo"];
+    }
+    if (isset($_POST["categoria"])) {
+        $category = $_POST["categoria"];
+    }
+    if (isset($_POST["quantidade"])) {
+        $quantity = $_POST["quantidade"];
+    }
+    if (isset($_POST["date"])) {
+        $date = $_POST["date"];
+    }
+    $user = $_SESSION["email"];
+    @$submit = $_POST["submit"];
+
+    if ($submit) {
+        if ($submit == "Enviar Dados") {
+            mysqli_query($con, "INSERT into products(user, title, category, quantity, date) VALUES('$user', '$title', '$category', '$quantity', '$date')");
+            echo "<script>alert('Produto para descarte cadastrado com sucesso!'),history.back()</script>";
+            header("Location:read_product.php");
+        } else {
+            echo  "<script>alert('Erro ao enviar os dados.');</script>";
+        }
+    }
+
+?>
