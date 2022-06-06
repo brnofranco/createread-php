@@ -1,10 +1,10 @@
 <header>
-    <a href='index.php'>
+    <a href='./'>
         <img class='nav-logo' src='public/logo.png' alt='logo reciclottech'>
     </a>
      
     <nav>
-        <a class="tabs" href="index.php">Home</a>
+        <a class="tabs" href="./">Home</a>
 
         <?php
             if (isset($_SESSION["email"])) {

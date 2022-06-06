@@ -415,6 +415,10 @@ form .form-data input[type="submit"].cancel:hover {
     background: var(--footerBgLighter);
 }
 
+.connection-error {
+    color: var(--error);
+}
+
 @media (max-width: 1280px) {
     header .nav-logo {
         width: 80%;

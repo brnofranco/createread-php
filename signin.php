@@ -43,15 +43,6 @@
         </div>
         
     </main>
-    <footer>
-        <?php
-            setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-            date_default_timezone_set('America/Sao_Paulo');
-            echo strftime('<h4>Jundiaí, %d de %B de %Y</h4>', strtotime('today'));
-        ?>
-        <span> - </span>
-        <h4>Desenvolvido por Bruno Franco e Murilo Carbol.</h4>
-    </footer>
 </body>
 </html>
 
