@@ -19,7 +19,7 @@
                 if (mysqli_fetch_array($query)) {
                     echo "<thead>
                             <tr>
-                                <th>Titulo</th>
+                                <th>Título</th>
                                 <th>Categoria</th>
                                 <th>Quantidade</th>
                                 <th>Data</th> 
@@ -37,7 +37,7 @@
                             <td>".$data['quantity']."</td>
                             <td>".strftime('%d/%m/%Y', strtotime($data['date']))."</td>
                             <td>
-                                <a class='discard-link' href='./discard.php?category=".$data['category']."'>Descartar</a>
+                                <a class='redirect-link' href='./discard.php?category=".$data['category']."'>Ver locais</a>
                             </td>
                         </tr>
                         ";
@@ -48,7 +48,7 @@
             ?>
             </tbody>
         </table>
-        <a class="button-create-new" href="./register_product.php">Cadastrar novo</a>
+        <a class="button-fill-green" href="./register_product.php">Cadastrar novo</a>
     </div>
 </body>
 </html>

@@ -51,7 +51,7 @@
                 <input type="file" name="foto" accept="image/*" id="pic" class="form-control" required>
                 <input type="hidden" name="acao" value="cadastrar" />
             </div>             
-            <input type="submit" name="submit" value="Enviar Dados" />
+            <input class="button-fill-green" type="submit" name="submit" value="Enviar Dados" />
         </section>
     </form>
 </body>

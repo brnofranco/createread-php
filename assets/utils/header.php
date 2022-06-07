@@ -1,6 +1,6 @@
 <header>
-    <a href='./'>
-        <img class='nav-logo' src='public/logo.png' alt='logo reciclottech'>
+    <a class='nav-logo' href='./'>
+        <img src='public/logo.png' alt='logo reciclottech'>
     </a>
      
     <nav>

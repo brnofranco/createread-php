@@ -17,7 +17,7 @@
     <main>
         <div class="main-content">
             <section class="main-content-info">
-                <form method="POST" action="./assets/database/login_session.php">
+                <form method="POST">
                     <section class="form-data">
                         <h2>Fazer Login</h2>
                         
@@ -37,9 +37,9 @@
                             }
                         ?>
                         
-                        <span>Não tem cadastro? <a class="register-link" href='signin.php'>Registrar agora</a></span>
+                        <p>Não tem cadastro? <a class="redirect-link" href='signin.php'>Registrar agora</a></p>
 
-                        <input type="submit" name="submit" value="Entrar" />
+                        <input class="button-fill-green" type="submit" name="submit" value="Entrar" />
                     </section>
                 </form>
             </section>
@@ -48,32 +48,25 @@
     </main>
 
 <?php
-   /*  if (isset($_POST["email"])) {
-        $email = $_POST["email"];
-    }
+   @$submit = $_POST["submit"];
 
-    if (isset($_POST["password"])) {
-        $password = $_POST["password"];
-    }
-
-    @$submit = $_POST["submit"];
+   @$email = $_POST["email"];
+   @$password = $_POST["password"];
+   
+   if ($submit) {
+       if ($submit == "Entrar") {
+            $query = mysqli_query($con, "SELECT * FROM users WHERE email = '$email'");
+            $data = mysqli_fetch_array($query);
     
-    if ($submit) {
-        $query = mysqli_query($con, "SELECT * FROM users WHERE email = '$email'");
-        $data = mysqli_fetch_array($query);
-
-        if ($data["email"] == null) {
             if ($email == $data["email"] && $password == $data["password"]) {
                 $_SESSION["email"] = $email;
                 $_SESSION["password"] = $password;
                 header("Location: ./");
+            } else {
+                header ("Location: login.php?error=1");
             }
-        } else {
-            echo "<script language='javascript'>";
-            echo "alert('Login ou senha inválidos!');";
-            echo "</script>";
-        }
-    } */
+       }
+   }
 ?>
 
 </body>

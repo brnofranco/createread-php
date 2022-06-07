@@ -49,7 +49,7 @@
             </tbody>
         </table>
 
-        <a class="button-create-new" href="./register_location.php">Cadastrar novo</a>
+        <a class="button-fill-green" href="./register_location.php">Cadastrar novo</a>
         
     </div>
 </body>

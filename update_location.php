@@ -53,9 +53,9 @@
                     <?php
                         $xml = simplexml_load_file('./assets/data/category.xml');
                         foreach($xml->category as $option){
-                            if($category==$option->id){
+                            if ($category==$option->id){
                                 echo "<option selected value='".$option->id."'>".$option->title." </option>";
-                            }else{
+                            } else {
                                 echo "<option value='".$option->id."'>".$option->title."</option>";
                             }
                         } 
@@ -80,8 +80,8 @@
             </div>
 
             <div class="buttons">
-                <input type="submit" name="submit" value="Alterar" />
-                <input class="cancel" type="submit" name="submit" value="Cancelar" />
+                <input class="button-fill-green" type="submit" name="submit" value="Alterar" />
+                <input class="button-fill-red" type="submit" name="submit" value="Cancelar" />
             </div>
 
         </section>

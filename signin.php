@@ -32,9 +32,9 @@
                             <input type="password" name="password" id="password" required>
                         </div>
 
-                        <p>Já tem cadastro? <a class="register-link" href='login.php'>Logar agora</a></p>
+                        <p>Já tem cadastro? <a class="redirect-link" href='login.php'>Logar agora</a></p>
 
-                        <input type="submit" name="submit" value="Cadastrar" />
+                        <input class="button-fill-green" type="submit" name="submit" value="Cadastrar" />
                     </section>
                 </form>
 

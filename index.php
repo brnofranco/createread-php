@@ -44,7 +44,7 @@
             echo strftime('<h4>Jundiaí, %d de %B de %Y</h4>', strtotime('today'));
         ?>
         <span> - </span>
-        <h4>Desenvolvido por Bruno Franco e Murilo Carbol.</h4>
+        <h4>Desenvolvido por Bruno Franco e Murilo Carbol</h4>
     </footer>
 </body>
 </html>
