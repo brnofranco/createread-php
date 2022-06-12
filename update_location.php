@@ -115,10 +115,10 @@
                 imagejpeg($nova, $local);
             }else if ($imagem['type']=="image/gif"){
                 $local="$pasta/$name".".gif";
-                imagejpeg($nova, $local);
+                imagegif($nova, $local);
             }else if ($imagem['type']=="image/png"){
                 $local="$pasta/$name".".png";
-                imagejpeg($nova, $local);
+                imagepng($nova, $local);
             }		
             global $pic;
             $pic = $local;

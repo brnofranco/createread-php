@@ -83,10 +83,10 @@
                 imagejpeg($nova, $local);
             }else if ($imagem['type']=="image/gif"){
                 $local="$pasta/$name".".gif";
-                imagejpeg($nova, $local);
+                imagegif($nova, $local);
             }else if ($imagem['type']=="image/png"){
                 $local="$pasta/$name".".png";
-                imagejpeg($nova, $local);
+                imagepng($nova, $local);
             }		
             global $pic;
             $pic = $local;
@@ -115,8 +115,7 @@
     if ($submit) {
         if ($submit == "Cadastrar") {
             mysqli_query($con, "INSERT into locations(name, category, address, cep,image_path) VALUES('$name', '$categoria', '$endereco', '$cep', '$pic')");
-            echo "<script>alert('Local de descarte criado com sucesso!'),history.back()</script>";
-            header("Location:read_location.php");
+            header("Location: read_location.php");
         } else {
             echo  "<script>alert('Erro ao enviar os dados.');</script>";
         }
