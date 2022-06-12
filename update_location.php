@@ -53,10 +53,10 @@
                     <?php
                         $xml = simplexml_load_file('./assets/data/category.xml');
                         foreach($xml->category as $option){
-                            if ($category==$option->id){
-                                echo "<option selected value='".$option->id."'>".$option->title." </option>";
+                            if ($category==$option->name){
+                                echo "<option selected value='".$option->name."'>".$option->name." </option>";
                             } else {
-                                echo "<option value='".$option->id."'>".$option->title."</option>";
+                                echo "<option value='".$option->name."'>".$option->name."</option>";
                             }
                         } 
                     ?>
@@ -74,7 +74,7 @@
             </div>
             
             <div class="input-form">
-                <label for="imagem">Enviar imagem:</label>
+                <label for="imagem">Imagem:</label>
                 <input type="file" name="foto" accept="image/*" id="pic" class="form-control">
                 <input type="hidden" name="acao" value="cadastrar" />
             </div>

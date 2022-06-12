@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
     <?php include("./assets/utils/head.php"); ?>
-    <title>Cadastrar - Reciclottech</title>
+    <title>Cadastrar peça - Reciclottech</title>
 </head>
 <body>
     <?php include("./assets/utils/header.php"); ?> 
@@ -23,7 +23,7 @@
                     <?php
                         $xml = simplexml_load_file('./assets/data/category.xml');
                         foreach($xml->category as $category){
-                            echo "<option value='".$category->id."'>".$category->title."</option>";
+                            echo "<option value='".$category->name."'>".$category->name."</option>";
                         } 
                     ?>
                 </select>
@@ -39,7 +39,7 @@
                 <input type="date" name="date" id="date" required>
             </div>
     
-            <input class="button-fill-green" type="submit" name="submit" value="Enviar Dados" />
+            <input class="button-fill-green" type="submit" name="submit" value="Cadastrar" />
         </section>
     </form>
 </body>
@@ -63,9 +63,8 @@
     @$submit = $_POST["submit"];
 
     if ($submit) {
-        if ($submit == "Enviar Dados") {
+        if ($submit == "Cadastrar") {
             mysqli_query($con, "INSERT into products(user, title, category, quantity, date) VALUES('$user', '$title', '$category', '$quantity', '$date')");
-            echo "<script>alert('Produto para descarte cadastrado com sucesso!'),history.back()</script>";
             header("Location:read_product.php");
         } else {
             echo  "<script>alert('Erro ao enviar os dados.');</script>";

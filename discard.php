@@ -5,6 +5,7 @@
     <?php 
         include(".\assets\utils\head.php"); 
         $category = $_GET["category"];
+        $product = $_GET["product"];
     ?>
     <title>Descartar - Reciclottech</title>
 </head>
@@ -12,8 +13,10 @@
     <?php include(".\assets\utils\header.php"); ?>
     <div class="locations-container">
         <div class="locations-title">
-            <?php echo "<h1>Locais de descarte - $category</h1>"; ?>
-            <h2>Os seguintes locais permitem que você descarte a peça.</h2>
+            <?php 
+                echo "<h1>Locais de descarte para \"$product\"</h1>"; 
+                echo "<h2>Os seguintes locais permitem que você descarte peças do tipo \"$category\".</h2>"
+            ?>
         </div>
         <?php
             function Mask($mask,$str){
@@ -42,7 +45,7 @@
                 
             } else {
                 echo "<center>
-                    <h3>Não há locais cadastrados para descartar esta peça. Contate o administrador.</h3>
+                    <h3 class='not-found'>Não há locais cadastrados para descartar esta peça.</h3>
                 </center>";
             }
         ?>

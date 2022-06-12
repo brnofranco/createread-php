@@ -21,7 +21,7 @@
             </section>
             <section class="main-content-cards">
                 <?php
-                    $iconsFile = file_get_contents('public/icons.json');
+                    $iconsFile = file_get_contents('assets/data/icons.json');
                     $data = json_decode($iconsFile);
                     
                     foreach ($data->icons as &$icon) {

@@ -19,7 +19,7 @@
                 if (mysqli_fetch_array($query)) {
                     echo "<thead>
                             <tr>
-                                <th>Título</th>
+                                <th>Peça</th>
                                 <th>Categoria</th>
                                 <th>Quantidade</th>
                                 <th>Data</th> 
@@ -28,7 +28,7 @@
                         </thead>
                         <tbody>";
 
-                    $query = mysqli_query($con, "SELECT * FROM products WHERE user = '$user'");
+                    $query = mysqli_query($con, "SELECT * FROM products WHERE user = '$user' ORDER BY date DESC");
 
                     while ($data=mysqli_fetch_array($query)){
                         echo "<tr>
@@ -37,13 +37,13 @@
                             <td>".$data['quantity']."</td>
                             <td>".strftime('%d/%m/%Y', strtotime($data['date']))."</td>
                             <td>
-                                <a class='redirect-link' href='./discard.php?category=".$data['category']."'>Ver locais</a>
+                                <a class='redirect-link' href='./discard.php?product=".$data['title']."&category=".$data['category']."'>Ver locais</a>
                             </td>
                         </tr>
                         ";
                     }
                 } else {
-                    echo "<h3 class='not-found'>Parece que você ainda não tem peças cadastradadas.</h3>";
+                    echo "<h3 class='not-found'>Parece que você ainda não cadastrou nenhuma peça.</h3>";
                 }
             ?>
             </tbody>

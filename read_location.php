@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
     <?php  include(".\assets\utils\head.php"); ?>
-    <title>Locais de Descarte - Reciclottech</title>
+    <title>Locais - Reciclottech</title>
 </head>
 <body>
     <?php include(".\assets\utils\header.php"); ?>
@@ -16,7 +16,7 @@
                     <th>Categoria Recebida</th>
                     <th>Endereço</th>
                     <th>CEP</th>
-                    <th>Imagem</th>
+                    <th>Foto</th>
                     <th>Editar</th>
                 </tr>
             </thead>
@@ -33,17 +33,18 @@
 
                 while ($data=mysqli_fetch_array($query)) {
                     echo "<tr>
-                    <td>".$data['name']."</td>
-                    <td>".$data['category']."</td>
-                    <td>".$data['address']."</td>
-                    <td>".Mask("#####-###", $data['cep'])."</td>
-                    <td><img src='".$data['image_path']."'></td>
-                    <td>
-                        <a href='update_location.php?id=".$data['id']."'><img style='width: 35px' src='./public/icons/pencil.svg'></a>
-                        <a href='delete.php?id=".$data['id']."'><img style='width: 30px' src='./public/icons/eraser.svg'></a>
-                    </td>
-                    </tr>
-                    ";
+                            <td>".$data['name']."</td>
+                            <td>".$data['category']."</td>
+                            <td>".$data['address']."</td>
+                            <td>".Mask("#####-###", $data['cep'])."</td>
+                            <td>
+                                <img src='".$data['image_path']."'>
+                            </td>
+                            <td>
+                                <a href='update_location.php?id=".$data['id']."'><img style='width: 35px' src='./public/icons/pencil.svg'></a>
+                                <a href='delete.php?id=".$data['id']."'><img style='width: 30px' src='./public/icons/eraser.svg'></a>
+                            </td>
+                          </tr>";
                 }
             ?>
             </tbody>

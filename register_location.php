@@ -30,7 +30,7 @@
                     <?php
                         $xml = simplexml_load_file('./assets/data/category.xml');
                         foreach($xml->category as $category){
-                            echo "<option value='".$category->id."'>".$category->title."</option>";
+                            echo "<option value='".$category->name."'>".$category->name."</option>";
                         } 
                     ?>
                 </select>
@@ -51,7 +51,7 @@
                 <input type="file" name="foto" accept="image/*" id="pic" class="form-control" required>
                 <input type="hidden" name="acao" value="cadastrar" />
             </div>             
-            <input class="button-fill-green" type="submit" name="submit" value="Enviar Dados" />
+            <input class="button-fill-green" type="submit" name="submit" value="Cadastrar" />
         </section>
     </form>
 </body>
@@ -113,7 +113,7 @@
     @$submit = $_POST["submit"];
     
     if ($submit) {
-        if ($submit == "Enviar Dados") {
+        if ($submit == "Cadastrar") {
             mysqli_query($con, "INSERT into locations(name, category, address, cep,image_path) VALUES('$name', '$categoria', '$endereco', '$cep', '$pic')");
             echo "<script>alert('Local de descarte criado com sucesso!'),history.back()</script>";
             header("Location:read_location.php");

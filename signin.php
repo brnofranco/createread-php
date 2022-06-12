@@ -24,7 +24,7 @@
                 
                         <div class="input-form">
                             <label for="cep">CEP</label>
-                            <input type="text" name="cep" id="cep" required>
+                            <input type="text" name="cep" id="cep" placeholder="Somente números" required>
                         </div>
 
                         <div class="input-form">
@@ -70,7 +70,7 @@
         if ($submit == "Cadastrar") {
             mysqli_query($con, "INSERT into users(name, email, cep, password) VALUES('$name', '$email', '$cep', '$password')");
             echo "<script>alert('Conta criada com sucesso'),history.back()</script>";
-            header("Location:login.php");
+            header("Location:login.php?success=1");
         } else {
             echo  "<script>alert('Erro ao enviar os dados.');</script>";
         }

@@ -5,6 +5,12 @@
     } else {
         $error = false;
     }
+
+    if (isset($_GET['success'])) {
+        $success = $_GET['success'];
+    } else {
+        $success = false;
+    }
 ?>
 <!DOCTYPE html>
 <head>
@@ -19,8 +25,15 @@
             <section class="main-content-info">
                 <form method="POST">
                     <section class="form-data">
-                        <h2>Fazer Login</h2>
+
+                        <?php
+                            if ($success) {
+                                echo "<span class='connection-success'>Conta criada com sucesso! Entre para continuar.</span><br>";
+                            }
+                        ?>
                         
+                        <h2>Fazer Login</h2>
+
                         <div class="input-form">
                             <label for="email">E-mail</label>
                             <input type="email" name="email" id="email" required>
