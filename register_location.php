@@ -65,33 +65,33 @@
             $name = md5(uniqid(rand(),true));
             
             if ($imagem['type']=="image/jpeg"){
-                $img = imagecreatefromjpeg($imagem['tmp_name']);
+                $img = imagecreatefromjpeg($imagem['tmp_name']);  // Função para criar a imagem no formato jpeg
             }else if ($imagem['type']=="image/gif"){
-                $img = imagecreatefromgif($imagem['tmp_name']);
+                $img = imagecreatefromgif($imagem['tmp_name']);  // Função para criar a imagem no formato gif
             }else if ($imagem['type']=="image/png"){
-                $img = imagecreatefrompng($imagem['tmp_name']);
+                $img = imagecreatefrompng($imagem['tmp_name']); // Função para criar a imagem no formato png
             }
             $x   = imagesx($img);
             $y   = imagesy($img);
             $altura = ($largura * $y)/$x;
             
-            $nova = imagecreatetruecolor($largura, $altura);
-            imagecopyresampled($nova, $img, 0, 0, 0, 0, $largura, $altura, $x, $y);
+            $nova = imagecreatetruecolor($largura, $altura);  // Função para criar o novo template da imagem
+            imagecopyresampled($nova, $img, 0, 0, 0, 0, $largura, $altura, $x, $y); // Função para copiar a imagem com o template errado para o novo template
             
             if ($imagem['type']=="image/jpeg"){
                 $local="$pasta/$name".".jpg";
-                imagejpeg($nova, $local);
+                imagejpeg($nova, $local); // Criando a imagem em jpeg
             }else if ($imagem['type']=="image/gif"){
                 $local="$pasta/$name".".gif";
-                imagegif($nova, $local);
+                imagegif($nova, $local); // Criando a imagem em gif
             }else if ($imagem['type']=="image/png"){
                 $local="$pasta/$name".".png";
-                imagepng($nova, $local);
+                imagepng($nova, $local); // Criando a imagem em png
             }		
             global $pic;
             $pic = $local;
-            imagedestroy($img);
-            imagedestroy($nova);	
+            imagedestroy($img); // Apagando a imagem com o tamanho errado
+            imagedestroy($nova); // Apagando o template com os tamanhos corretos
             
             return $local;
         }
